@@ -1,0 +1,12 @@
+web:
+  build: ./main
+  command: python server/manage.py runserver 0.0.0.0:8000
+  volumes:
+    - ./main:/code
+  ports:
+    - "8000:8000"
+  links:
+    - db
+
+db:
+  image: postgres
